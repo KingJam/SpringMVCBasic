@@ -7,6 +7,11 @@
  
 	<display-name>Spring MVC Application</display-name>
  
+	<!-- 
+		There must be a file in WEB=INF that starts with the name of this servlet
+		and ends with -servlet.xml. In this case it would be named dispatcher-servlet.xml.
+		It also must be referenced in the <context-param> below.
+	-->
 	<servlet>
 		<servlet-name>dispatcher</servlet-name>
 		<servlet-class>
@@ -15,6 +20,9 @@
 		<load-on-startup>1</load-on-startup>
 	</servlet>
  
+	<!-- 
+		Define the URLs handled by the DispatcherServlet.
+	 -->
 	<servlet-mapping>
 		<servlet-name>dispatcher</servlet-name>
 		<url-pattern>/</url-pattern>
