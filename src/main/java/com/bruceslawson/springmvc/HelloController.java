@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
  
 @Controller
 //@RequestMapping("/welcome")
@@ -25,5 +26,15 @@ public class HelloController {
 		model.addAttribute("message", "Hello again");
 		
 		return "hello";
+	}
+	
+	
+	@RequestMapping(value="/hi3")
+	public ModelAndView printWelcome3() {
+ 
+		ModelAndView mv = new ModelAndView("hello");
+		mv.addObject("message", "Hello again 3");
+		
+		return mv;
 	}
 }
