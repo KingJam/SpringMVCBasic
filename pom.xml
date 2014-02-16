@@ -40,5 +40,17 @@
 
 	<build>
 		<finalName>SpringMVCBasic</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<webappDirectory>/Users/slawsonb/servers/apache-tomcat-7.0.50/webapps/SpringMVCBasic/</webappDirectory>
+				</configuration>
+			</plugin>
+		</plugins>
+
+
 	</build>
 </project>
