@@ -1,8 +1,8 @@
 package com.bruceslawson.springmvc.model;
 
 public class SomeBean {
-	private String name;
-	private int age;
+	public String name;
+	public int age;
 	
 	
 	public String getName() {

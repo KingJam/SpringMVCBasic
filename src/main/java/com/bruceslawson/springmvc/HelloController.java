@@ -1,6 +1,8 @@
 package com.bruceslawson.springmvc;
 
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -72,33 +74,38 @@ public class HelloController {
 		SomeBean bean = service.getSomeBean();
 		
 		// return json
-	    return bean;
+	    return bean;		
 	}
 	
+	
+	
+	
 	@RequestMapping(value="/getjson2")
-	public @ResponseBody SomeBean getSomeJson(@RequestParam String name) {
+	public @ResponseBody SomeBean getSomeJson(@RequestParam String name, @RequestParam Integer age) {
 		
 		// do some business stuff and get data (model)
 		BusinessService service = new BusinessService();
 		SomeBean bean = service.getSomeBean();
 		bean.setName(name);
+		bean.setAge(age);
+		
+		System.out.println("name: " + bean.getName());
+		System.out.println("age: " + bean.getAge());
 		
 		// return json
 	    return bean;
 	}
 	
 	
-	@RequestMapping(value="/getjson3", method=RequestMethod.POST)
-	public @ResponseBody SomeBean getSomeJson2(@RequestParam SomeBean beanIn) {
+	@RequestMapping(value="/getjson3")
+	public @ResponseBody List<SomeBean> getSomeJson2() {
 		
 		// do some business stuff and get data (model)
 		BusinessService service = new BusinessService();
-		SomeBean beanOut = service.getSomeBean();
-		beanOut.setName(beanIn.getName() + " has a new name");
-		beanOut.setAge(beanIn.getAge() + 22);
+		List<SomeBean> beans = service.getSomeBeans();
 		
 		// return json
-	    return beanOut;
+	    return beans;
 	}
 	
 }
