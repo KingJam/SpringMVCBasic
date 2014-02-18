@@ -8,7 +8,7 @@ public class BusinessService {
 	public SomeBean getSomeBean() {
 		
 		SomeBean someBean = new SomeBean();
-		someBean.setName("Bruce");
+		someBean.setName("Robert");
 		someBean.setAge(25);
 		
 		return someBean;
@@ -20,8 +20,8 @@ public class BusinessService {
 		
 		
 		SomeBean someBean = new SomeBean();
-		someBean.setName("Bruce");
-		someBean.setAge(25);
+		someBean.setName("Carly");
+		someBean.setAge(10);
 		
 		beans.add(someBean);
 		

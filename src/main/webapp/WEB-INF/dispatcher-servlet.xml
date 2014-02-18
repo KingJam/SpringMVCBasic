@@ -9,27 +9,21 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
  
+ 
+ 	<!-- Package in which to look for controllers -->
 	<context:component-scan base-package="com.bruceslawson.springmvc" />
  
-	<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
-	    <property name="warnLogCategory" value="apperror" />
-	    <property name="exceptionMappings">
-	        <props>
-	            <prop key="java.lang.Exception">error</prop>
-	        </props>
-	    </property>
-	</bean>
-	
+ 	<!-- Where the controller looks for views -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix">
-			<value>/WEB-INF/jsp/</value>
+			<value>/WEB-INF/views/</value>
 		</property>
 		<property name="suffix">
 			<value>.jsp</value>
 		</property>
 	</bean>
 
-
+	<!-- Needed for producing and consuming JSON from controllers -->
 	<bean id="jacksonMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"></bean>
 	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
 		<property name="messageConverters">
@@ -39,5 +33,14 @@
 		</property>
 	</bean>
 
+ 	<!-- Needed to log Spring errors -->
+ 	<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+	    <property name="warnLogCategory" value="apperror" />
+	    <property name="exceptionMappings">
+	        <props>
+	            <prop key="java.lang.Exception">error</prop>
+	        </props>
+	    </property>
+	</bean>
  
 </beans>

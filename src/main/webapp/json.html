@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	
+	<script type="text/javascript">
+		$(document).ready(function() {
+			doJsonStuff();
+			doJsonStuff2("Lenny", 8);
+			doJsonStuff3();
+		});
+
+		
+		function doJsonStuff() {
+			url = "controllers/getjson";
+			
+		    $.getJSON("controllers/getjson", function(data) {
+		    	 console.log( "success" );
+				$('#name').text(data.name);
+				$('#age').text(data.age);
+		    });
+		}
+
+
+		function doJsonStuff2(name, age) {
+			url = "controllers/getjson2?name=" + name + "&age=" + age; 
+
+		    $.getJSON(url, function(data) {
+				$('#name2').text(data.name);
+				$('#age2').text(data.age);
+		    });
+		}		
+
+
+		function doJsonStuff3() {
+			url = "controllers/getjson3";
+
+		    $.getJSON(url, function(data) {
+				for(var i = 0; i < data.length; i++) {
+					$('#nameAge > tbody:last').append('<tr><td>' + data[i].name + '</td><td>' + data[i].age  + '</td></tr>');
+				}
+		    });
+		}
+	</script>
+
+</head>
+<body>
+
+<h3>These are set by data from URL /SpringMVCBasic/controllers/getjson</h3>
+Name: <span id="name"></span>
+<br/>
+Age: <span id="age"></span>
+<br/>
+
+<h3>These are set by data from URL /SpringMVCBasic/controllers/getjson2</h3>
+Name: <span id="name2"></span>
+<br/>
+Age: <span id="age2"></span>
+<br/>
+
+
+<h3>These table values are set by data from URL /SpringMVCBasic/controllers/getjson3</h3>
+<table id="nameAge" border="1">
+	<thead>
+		<tr>
+			<th>NAME</th><th>AGE</th>
+		</tr>
+	</thead>
+	<tbody>
+	</tbody>
+</table>
+
+
+</body>
+</html>

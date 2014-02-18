@@ -1,1 +1,9 @@
-Basic spring MVC example
+Basic Spring MVC example.
+
+1. Build using maven:
+mvn package
+
+2. Copy SpringMVCBasic.war to deploy directory of web container. 
+
+3. Go to URL
+http://localhost:8080/SpringMVCBasic/index.html
